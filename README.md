@@ -61,8 +61,9 @@ python 01_chat.py                  # start here, then 02, 03, ...
 ```
 
 > The scripts default to `openai/gpt-oss-120b:free` — a free, tool-capable model
-> on OpenRouter. Free models are rate-limited and occasionally busy; swap the
-> `MODEL` line for any model id from <https://openrouter.ai/models>.
+> on OpenRouter. To use a different one, set `MODEL` in your `.env` to any model
+> id from <https://openrouter.ai/models> (no code changes needed). Free models
+> are rate-limited and occasionally busy.
 
 ---
 

@@ -38,6 +38,8 @@ from rich.console import Console
 load_dotenv()
 console = Console()
 
+MODEL = os.environ.get("MODEL", "openai/gpt-oss-120b:free")   # override via the MODEL env var
+
 
 # --- Tools: @tool reads the signature + docstring and generates the schema ---
 # Compare this to script 02, where we wrote ~15 lines of JSON per tool by hand.
@@ -58,7 +60,7 @@ TOOLS = {"get_time": get_time, "multiply": multiply}
 # ChatOpenAI points at OpenRouter via base_url. .bind_tools(...) attaches the
 # tools so every call offers them to the model (like tools=... in script 02).
 llm = ChatOpenAI(
-    model="openai/gpt-oss-120b:free",
+    model=MODEL,
     base_url="https://openrouter.ai/api/v1",
     api_key=os.environ["OPENROUTER_API_KEY"],
 ).bind_tools(list(TOOLS.values()))

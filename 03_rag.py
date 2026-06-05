@@ -43,7 +43,7 @@ load_dotenv()
 console = Console()
 
 BASE_URL = "https://openrouter.ai/api/v1"
-MODEL = "openai/gpt-oss-120b:free"
+MODEL = os.environ.get("MODEL", "openai/gpt-oss-120b:free")   # override via the MODEL env var
 
 # --- Our tiny knowledge base (pretend these are Blue Medical's docs) --------
 DOCS = [

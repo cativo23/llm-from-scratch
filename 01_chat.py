@@ -35,7 +35,7 @@ load_dotenv()                                 # so os.environ can see OPENROUTER
 # OpenRouter is a single gateway to hundreds of models. It mimics the OpenAI API,
 # so the OpenAI client works against it just by changing the base_url.
 BASE_URL = "https://openrouter.ai/api/v1"
-MODEL = "openai/gpt-oss-120b:free"            # free, reliable tool calling + number handling
+MODEL = os.environ.get("MODEL", "openai/gpt-oss-120b:free")            # free, reliable tool calling + number handling
 
 # Purely cosmetic: the words the spinner rotates through while we wait.
 THINKING_WORDS = [

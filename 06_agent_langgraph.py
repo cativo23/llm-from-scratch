@@ -34,6 +34,8 @@ from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
+MODEL = os.environ.get("MODEL", "openai/gpt-oss-120b:free")   # override via the MODEL env var
+
 
 @tool
 def get_time() -> str:
@@ -48,7 +50,7 @@ def multiply(a: int, b: int) -> int:
 
 
 llm = ChatOpenAI(
-    model="openai/gpt-oss-120b:free",
+    model=MODEL,
     base_url="https://openrouter.ai/api/v1",
     api_key=os.environ["OPENROUTER_API_KEY"],
 )
